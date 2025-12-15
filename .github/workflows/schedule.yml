@@ -2,7 +2,7 @@ name: Weather Checker
 
 on:
   schedule:
-    # каждый час
+    # Запуск каждый час
     - cron: "0 * * * *"
   workflow_dispatch:  # ручной запуск
 
