@@ -7,7 +7,7 @@ import sys
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 CHANNEL = os.getenv("CHANNEL")
 
-URL = "https://www.gismeteo.ru/weather-volgograd-5089/hourly/"
+URL = "https://www.gismeteo.ru/weather-volgograd-5089/"
 HEADERS = {"User-Agent": "Mozilla/5.0"}
 
 TODAY_HOURS = ["06:00", "09:00", "12:00", "15:00", "18:00", "21:00"]
@@ -125,3 +125,4 @@ else:
     msg = build_message(now + timedelta(days=1), TOMORROW_HOURS, False)
 
 send(msg)
+
