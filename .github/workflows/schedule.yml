@@ -1,32 +1,25 @@
-name: Weather Checker
+name: Weather Bot
 
 on:
   schedule:
-    # Запуск каждый час
-    - cron: "0 * * * *"
-  workflow_dispatch:  # ручной запуск
+    - cron: '0 * * * *'  # запуск каждый час
+  workflow_dispatch:      # возможность запуска вручную
 
 jobs:
-  check_weather:
+  weather:
     runs-on: ubuntu-latest
-
     steps:
-      # 1️⃣ Клонируем репозиторий
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-      # 2️⃣ Устанавливаем Python
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
-      # 3️⃣ Устанавливаем зависимости
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: pip install requests
 
-      # 4️⃣ Запускаем скрипт погоды
       - name: Run weather script
         run: python weather.py
         env:
